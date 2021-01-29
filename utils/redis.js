@@ -1,7 +1,7 @@
 import redis from 'redis';
 import {promisify} from 'util';
 
-export default class RedisClient {
+class RedisClient {
   constructor() {
     this.client = redis.createClient();
     this.getAsync = promisify(this.client.get).bind(this.client);
@@ -29,3 +29,5 @@ export default class RedisClient {
 }
 
 const redisClient = new RedisClient();
+
+export default redisClient;
